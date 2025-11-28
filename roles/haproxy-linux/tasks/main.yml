@@ -1,0 +1,21 @@
+---
+- name: Install HAProxy
+  yum:
+    name: haproxy
+    state: present
+    update_cache: yes
+  # ถ้าใช้ RedHat/CentOS ให้เปลี่ยน apt เป็น yum หรือ dnf
+
+- name: Deploy HAProxy Configuration
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: '0644'
+    validate: haproxy -c -f %s  # ตรวจสอบความถูกต้องของไฟล์ก่อนวางจริง (Best Practice!)
+  notify: restart haproxy       # ถ้าไฟล์เปลี่ยน ให้เรียก Handler
+
+- name: Ensure HAProxy is running and enabled
+  service:
+    name: haproxy
+    state: started
+    enabled: yes

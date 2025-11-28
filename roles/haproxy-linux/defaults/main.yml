@@ -1,0 +1,2 @@
+haproxy_port: 80
+webservers_port: 80
