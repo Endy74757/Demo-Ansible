@@ -1,0 +1,6 @@
+---
+
+- name: Test
+  hosts: localhost
+  connection: localhost
+  gather_facts: false
