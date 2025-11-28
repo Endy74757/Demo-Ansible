@@ -1,0 +1,9 @@
+[webservers]
+web-01 ansible_host=10.33.0.30
+web-02 ansible_host=10.33.0.33
+
+[dbservers]
+db-01 ansible_host=10.33.0.32
+
+[loadbalancer]
+lb-01 ansible_host=10.33.0.31
