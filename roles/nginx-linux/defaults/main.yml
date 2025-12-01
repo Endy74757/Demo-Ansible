@@ -1,0 +1,5 @@
+---
+nginx_port: 80
+nginx_server_name: "{{ ansible_host }}"  # ใช้ IP เครื่องเป็นชื่อเว็บไปก่อน
+nginx_root: /var/www/html/my_app
+nginx_worker_connections: 1024

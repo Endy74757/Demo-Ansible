@@ -6,7 +6,14 @@
       debug:
         msg: "Hello world"
 
+- name: Install Nginx
+  hosts: webservers
+  become: true
+  roles:
+    - nginx-linux
+
 - name: Install HAProxy
   hosts: loadbalancer
+  become: true
   roles:
     - haproxy-linux
